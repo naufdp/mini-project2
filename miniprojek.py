@@ -65,12 +65,6 @@ while True:
         print("Nilai UAS harus berupa angka")
 
 
-nilai_valid = (nilai_tugas >= 0 and nilai_tugas <= 100 
-               and nilai_uts >= 0 and nilai_uts <= 100 
-               and nilai_uas >= 0 and nilai_uas <= 100)
-
-
-# Bobot nilai
 bobot_tugas = 0.30
 bobot_uts = 0.30
 bobot_uas = 0.40
@@ -91,46 +85,35 @@ print("Nilai UTS   :", nilai_uts)
 print("Nilai UAS   :", nilai_uas)
 
 
-if nilai_valid:
+perhitungan = (nilai_tugas * bobot_tugas 
+    + nilai_uts * bobot_uts 
+    + nilai_uas * bobot_uas
+)
 
-    # Hitung nilai akhir
-    perhitungan = (nilai_tugas * bobot_tugas 
-        + nilai_uts * bobot_uts 
-        + nilai_uas * bobot_uas
-    )
-
-    print("Nilai akhir :", perhitungan)
+print("Nilai akhir :", perhitungan)
 
 
-    # Status
-    if perhitungan >= 75:
-        print("Status      : LULUS")
-    else:
-        print("Status      : TIDAK LULUS")
-
-
-    # Grade
-    if perhitungan >= 90:
-        print("Grade       : A")
-        print("Keterangan  : Sangat Baik")
-    elif perhitungan >= 80:
-        print("Grade       : B")
-        print("Keterangan  : Baik")
-    elif perhitungan >= 70:
-        print("Grade       : C")
-        print("Keterangan  : Cukup")
-    elif perhitungan >= 60:
-        print("Grade       : D")
-        print("Keterangan  : Kurang")
-    else:
-        print("Grade       : E")
-        print("Keterangan  : Sangat Kurang")
-
-
+if perhitungan >= 75:
+    print("Status      : LULUS")
 else:
-    print("PERINGATAN!")
-    print("Nilai tidak valid.")
-    print("Nilai harus berada di antara 0 sampai 100.")
+    print("Status      : TIDAK LULUS")
+
+
+if perhitungan >= 90:
+    print("Grade       : A")
+    print("Keterangan  : Sangat Baik")
+elif perhitungan >= 80:
+    print("Grade       : B")
+    print("Keterangan  : Baik")
+elif perhitungan >= 70:
+    print("Grade       : C")
+    print("Keterangan  : Cukup")
+elif perhitungan >= 60:
+    print("Grade       : D")
+    print("Keterangan  : Kurang")
+else:
+    print("Grade       : E")
+    print("Keterangan  : Sangat Kurang")
 
 
 print("================================")
